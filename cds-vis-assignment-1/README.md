@@ -1,5 +1,10 @@
-# Building a simple image search algorithm
+# Assignment 1: Building a simple image search algorithm
+Laura Givskov Rahbek 
 
+The cds-vis-assignment-1 folder contains a script (in src folder) where all images found at https://www.robots.ox.ac.uk/~vgg/data/flowers/17/ are compared to one chosen image, and the five most similar are found. The filenames and ditsance metrics for these five can be found in a csv file in the out folder. 
+
+
+## Assignment description and objectives
 For this assignment, you'll be using ```OpenCV``` to design a simple image search algorithm.
 
 The dataset is a collection of over 1000 images of flowers, sampled from 17 different species. The dataset comes from the Visual Geometry Group at the University of Oxford, and full details of the data can be found [here](https://www.robots.ox.ac.uk/~vgg/data/flowers/17/).
