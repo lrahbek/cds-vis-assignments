@@ -31,6 +31,7 @@ X_train_scaled.reshape(-1, 1024)
 X_test_scaled.reshape(-1, 1024)
 ```
 
+
 ## Tips
 
 - The Cifar10 dataset you download does not have explict label names but instead has numbers from 0-9. You'll need to make a list of labels based on the object names - you can find these on the website.

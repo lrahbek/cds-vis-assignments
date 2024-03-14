@@ -29,6 +29,13 @@ def get_arguments():
                         default = cifar10.load_data(),
                         help= "The function used to load in X_train, y_train, X_test and y_test")
     
+    parser.add_argument(
+                        "--labels",
+                        "-l", 
+                        required = False,
+                        default = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"],
+                        help= "Labels used instead of the integer labels given in the dataset")
+    
     args = parser.parse_args()
     return args
 
@@ -59,15 +66,16 @@ def preprocess(images):
 
     return preprocessed_images
 
-def LR_classifier(X_prep_train, y_train, X_prep_test, y_test, outpath):
+def LR_classifier(X_prep_train, y_train, X_prep_test, y_test, labels, outpath):
     """
     The function returns the classification report to the given outpath, of a 
-    logistic regression classifier, trained and tested on the input images. 
+    logistic regression classifier, trained and tested on the input images. The labels
+    argument allows for changing the target names in the classification report.
     """
     fitted_classifier = LogisticRegression(random_state=42).fit(X_prep_train, y_train)
     y_pred = fitted_classifier.predict(X_prep_test)
 
-    metrics_rep = metrics.classification_report(y_test, y_pred)
+    metrics_rep = metrics.classification_report(y_test, y_pred, target_names = labels)
     filepath_metrics = open(outpath, 'w')
     filepath_metrics.write(metrics_rep)
     filepath_metrics.close()
@@ -78,7 +86,7 @@ def main():
     X_train, y_train, X_test, y_test = image_loader(args.imageloader)
     X_train_pre = preprocess(X_train)
     X_test_pre = preprocess(X_test)
-    LR_classifier(X_train_pre, y_train, X_test_pre, y_test, args.outpath)
+    LR_classifier(X_train_pre, y_train, X_test_pre, y_test, args.labels, args.outpath)
     
 
 if __name__ == "__main__":
