@@ -1,6 +1,9 @@
 # Assignment 2 - Classification benchmarks with Logistic Regression and Neural Networks
+
 Visual Analytics, Cultural Data Science, 2024 
+
 Date: *15/03/2024*
+
 By: Laura Givskov Rahbek 
 
 ## Requirements and description for assignment 2
@@ -13,7 +16,7 @@ The folder ```cds-vis-assignment-2``` contains the following:
     - MLP_classifier.py: Preprocess, fits and tests a MLP classifier on images, the default images are the ones from ```Cifar10``` dataset. The script returns a classification report and a plot of the loss curve to a given outpath, the default is the ```out``` folder.
 
 
-## Assignment prompt
+## Assignment prompt description and objectives
 For this assignment, we'll be writing scripts which classify the ```Cifar10``` dataset. You can read more about this dataset [here](https://www.cs.toronto.edu/~kriz/cifar.html)
 
 You should write code which does the following:
