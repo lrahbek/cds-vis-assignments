@@ -1,14 +1,18 @@
-from tensorflow.keras.datasets import cifar10
 import os 
 import sys 
+import argparse
 import cv2
 import numpy as np 
 import matplotlib.pyplot as plt
+from tensorflow.keras.datasets import cifar10
+from sklearn.neural_network import MLPClassifier
 from sklearn import metrics
-from sklearn.linear_model import LogisticRegression
-import argparse
 
 def get_arguments():
+    """
+    Get arguments used in functions, the default arguments are the ones used in 
+    completing assignment 2 for Visual Analytics (CDS, 2024)
+    """
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -28,12 +32,22 @@ def get_arguments():
     args = parser.parse_args()
     return args
 
+
 def image_loader(load_fun):
+    """
+    The function returns X_train, y_train, X_test and y_test, as formatted when 
+    using the default imageloader 'cifar10.load_data()'. 
+    """
     (X_train, y_train), (X_test, y_test) = load_fun
     return X_train, y_train, X_test, y_test
 
 
 def preprocess(images):
+    """
+    The function returns the processed version of the input images (greyed, 
+    scales and reshaped). The input images must be formatted as a 4D ndarray, 
+    [number of images, number of pixels, number of pixels, colour channels (RGB)]
+    """
     greyed_shape = (images.shape[0:3])
     greyed_dtype = (images.dtype)
     images_grey = np.empty(shape = greyed_shape, dtype= greyed_dtype)    
@@ -46,15 +60,9 @@ def preprocess(images):
 
     return preprocessed_images
 
-def LR_classifier(X_prep_train, y_train, X_prep_test, y_test, outpath):
 
-    fitted_classifier = LogisticRegression(random_state=42).fit(X_prep_train, y_train)
-    y_pred = fitted_classifier.predict(X_prep_test)
 
-    metrics_rep = metrics.classification_report(y_test, y_pred)
-    filepath_metrics = open(outpath, 'w')
-    filepath_metrics.write(metrics_rep)
-    filepath_metrics.close()
+
 
 
 def main():
