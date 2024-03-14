@@ -83,7 +83,8 @@ def MLP_classifier(X_prep_train, y_train):
                                 activation = "logistic",
                                 hidden_layer_sizes = (20,), 
                                 max_iter=1000, 
-                                random_state=42)
+                                random_state=42, 
+                                verbose = True)
 
     fitted_classifier = classifier.fit(X_prep_train, y_train)
 
@@ -98,7 +99,7 @@ def evaluator(fitted_classifier, X_prep_test, y_test, labels, outpath_report, ou
     """
     y_pred = fitted_classifier.predict(X_prep_test)
 
-    metrics_rep = metrics.classification_report(y_test, y_pred)
+    metrics_rep = metrics.classification_report(y_test, y_pred, target_names = labels)
     filepath_metrics = open(outpath_report, 'w')
     filepath_metrics.write(metrics_rep)
     filepath_metrics.close()
