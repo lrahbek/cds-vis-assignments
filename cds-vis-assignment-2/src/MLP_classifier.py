@@ -81,7 +81,7 @@ def MLP_classifier(X_prep_train, y_train):
     """
     classifier = MLPClassifier(
                                 activation = "logistic",
-                                hidden_layer_sizes = (20,), 
+                                hidden_layer_sizes = (200,), 
                                 max_iter=1000, 
                                 random_state=42, 
                                 verbose = True)
