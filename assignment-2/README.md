@@ -1,10 +1,19 @@
-# Assignment 2 - Classification benchmarks with Logistic Regression and Neural Networks
+# Assignment 2 - Classification Benchmarks with Logistic Regression and Neural Networks
 
-Visual Analytics, Cultural Data Science, 2024 
+*Date: 15-03-2024*
 
-Date: *15/03/2024*
+Laura Givskov Rahbek 
 
-By: Laura Givskov Rahbek 
+## Description 
+
+## Data 
+
+## Usage and Reprodcuing of Analysis 
+
+## Discussion
+
+
+_______
 
 ## Requirements and description for assignment 2
 To run the code, response to Assignment 2 prompt, the following packages should be installed: ```tensorflow```, ```opencv-python```, ```matplotlib```, ```scikit-learn```. 
