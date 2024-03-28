@@ -14,7 +14,7 @@ def get_arguments():
                         "--flower",
                         "-f", 
                         required = False,
-                        default = "image_001.jpg",
+                        default = "image_0001.jpg",
                         help="The file name of the flower of choice, the default is image_0001.jpg")
                    
     args = parser.parse_args()
@@ -33,16 +33,16 @@ def pick_flower(image_name):
     The function takes the filename of the image that should be compared to all images
     and returns an outpath with the image name, and the normalised histogram
     """
-    filepath_f1 = os.path.join("..", "in", "flowers", image_name)
+    filepath_f1 = os.path.join("in", "flowers", image_name)
     image_f1 = cv2.imread(filepath_f1)
     filename_f1 = filepath_f1.split("/")[-1].split(".jpg")[0]
     norm_hist_f1 = image_hist(image_f1)
-    outpath_f1 = os.path.join("..", "out", f"{filename_f1}_dist.csv")
+    outpath_f1 = os.path.join("out", f"{filename_f1}_dist.csv")
     return outpath_f1, norm_hist_f1
 
 
 def compare_flower(outpath_f1, norm_hist_f1):
-    filepath_f = os.path.join("..", "in", "flowers")
+    filepath_f = os.path.join("in", "flowers")
     dist_df = pd.DataFrame(columns= ("Filename", "Distance"))
 
     for file in sorted(os.listdir(filepath_f)):
@@ -66,7 +66,8 @@ def compare_flower(outpath_f1, norm_hist_f1):
 
 def main():
     args = get_arguments()
-
+    outpath_f1, norm_hist_f1 = pick_flower(args.flower)
+    compare_flower(outpath_f1, norm_hist_f1)
 
 
 if __name__ == "__main__":
