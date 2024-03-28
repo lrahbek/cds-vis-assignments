@@ -13,6 +13,8 @@ Laura Givskov Rahbek
 
 ## Discussion
 
+
+_____
 The cds-vis-assignment-1 folder contains a script (in src folder) where all images found at https://www.robots.ox.ac.uk/~vgg/data/flowers/17/ are compared to one chosen image, and the five most similar are found. The filenames and ditsance metrics for these five can be found in a csv file in the out folder. 
 
 
